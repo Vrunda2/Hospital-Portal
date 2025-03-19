@@ -22,8 +22,8 @@
 <!-- customs css for this page -->
 <style type="text/css">
 .my-card {
-	box-shadow: 0px 0px 10px 1px maroon;
-	/*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+	/* box-shadow: 0px 0px 10px 1px maroon; */
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 </style>
 <!-- end of customs css for this page -->
@@ -42,7 +42,7 @@
 
 
 	<div class="container p-5">
-		<p class="text-center text-danger fs-3">Admin Dashboard</p>
+		<p class="text-center fs-3">Admin Dashboard</p>
 
 		<!-- message print -->
 		<!-- for success msg -->
@@ -71,7 +71,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<div class="card my-card">
-					<div class="card-body text-center text-danger">
+					<div class="card-body text-center">
 						<i class="fa-solid fa-user-doctor fa-3x"></i><br>
 						<p class="fs-4 text-center">
 							Doctor <br><%= totalNumberOfDoctor %>
@@ -83,7 +83,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="card my-card">
-					<div class="card-body text-center text-danger">
+					<div class="card-body text-center">
 						<i class="fas fa-user-circle fa-3x"></i><br>
 						<p class="fs-4 text-center">
 							User <br><%= totalNumberOfUser %>
@@ -94,7 +94,7 @@
 			</div>
 			<div class="col-md-4">
 				<div class="card my-card">
-					<div class="card-body text-center text-danger">
+					<div class="card-body text-center ">
 						<i class="fa-solid fa-calendar-check fa-3x"></i><br>
 						<p class="fs-4 text-center">
 							Total Appointment <br><%= totalNumberOfAppointment %>
@@ -106,7 +106,7 @@
 			<div class="col-md-4 mt-2">
 				<div class="card my-card" data-bs-toggle="modal"
 					data-bs-target="#exampleModal">
-					<div class="card-body text-center text-danger">
+					<div class="card-body text-center">
 						<i class="fa-solid fa-user-doctor fa-3x"></i><br>
 						<p class="fs-4 text-center">
 							Specialist <br><%= totalNumberOfSpecialist %>
@@ -132,7 +132,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title text-danger" id="exampleModalLabel">Add Specialist</h5>
+					<h5 class="modal-title " id="exampleModalLabel">Add Specialist</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>

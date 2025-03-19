@@ -53,8 +53,10 @@
   <!-- Copyright -->
   
   <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2022 Copyright:
-    <a class="text-white" href="https://github.com/mdtalalwasim">Md.Talal Wasim</a> (Developer)
+    © 2025 Copyright:
+    <a class="text-white" href="https://github.com/ayesha1209">Ayesha Patel</a> (Developer)
+    <a class="text-white" href="https://github.com/Vrunda2">Vrunda Radadiya</a> (Developer)
+    <a class="text-white" href="https://github.com/meghanavasava">Meghana Vasava</a> (Developer)
   </div>
   <!-- Copyright -->
 </footer>

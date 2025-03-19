@@ -46,9 +46,7 @@
 							<button type="submit" class="btn btn-primary mt-3">Login</button>
 						</form>
 						
-						<p class="text-center mt-3">
-							Don't have an account? <a href="doctor_register.jsp">Register here</a>
-						</p>
+						
 					</div>
 				</div>
 			</div>

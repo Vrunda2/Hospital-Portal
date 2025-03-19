@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="index.jsp"><i
 			class="fa-sharp fa-solid fa-hospital"></i> Doctor Patient Portal</a>

@@ -23,8 +23,8 @@
 <!-- customs css for this page -->
 <style type="text/css">
 .my-card {
-	box-shadow: 0px 0px 10px 1px maroon;
-	/*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
+	/* box-shadow: 0px 0px 10px 1px maroon; */
+	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
 }
 </style>
 <!-- end of customs css for this page -->
