@@ -14,105 +14,189 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0 ">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Home Page | Doctor Patient Portal</title>
 <%@include file="component/allcss.jsp"%>
 
-
-<!-- customs css for this page -->
+<!-- Custom CSS for this page -->
 <style type="text/css">
+:root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #60a5fa;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --light-bg: #f3f4f6;
+  --white: #ffffff;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --rounded: 0.5rem;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
 .my-card {
-	/* box-shadow: 0px 0px 10px 1px maroon; */
-	box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  height: 100%;
+}
+
+.my-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.myP-color {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.hero-section {
+  position: relative;
+}
+
+.carousel-item img {
+  object-fit: cover;
+  filter: brightness(0.85);
+}
+
+.carousel-caption {
+  bottom: 25%;
+}
+
+.feature-icon {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.team-card img {
+  border-radius: var(--rounded);
+  object-fit: cover;
+  width: 100%;
+  height: 300px;
+}
+
+.section-heading {
+  position: relative;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+}
+
+.section-heading:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
 }
 </style>
-<!-- end of customs css for this page -->
+<!-- End of custom CSS -->
+
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
 <body>
 	<%@include file="component/navbar.jsp"%>
 
-
-	<!-- carousel code -->
-
-	<div id="carouselExampleIndicators" class="carousel slide"
-		data-bs-ride="carousel">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="0" class="active" aria-current="true"
-				aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="2" aria-label="Slide 3"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="3" aria-label="Slide 4"></button>
-			<!-- <button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="4" aria-label="Slide 5"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="5" aria-label="Slide 6"></button>
-			<button type="button" data-bs-target="#carouselExampleIndicators"
-				data-bs-slide-to="6" aria-label="Slide 7"></button> -->
+	<!-- Hero Section with Carousel -->
+	<div class="hero-section">
+		<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="0" class="active" aria-current="true"
+					aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carouselExampleIndicators"
+					data-bs-slide-to="3" aria-label="Slide 4"></button>
+			</div>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="img/doctor_2.jpg" class="d-block w-100" alt="..." height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h2 class="display-4 fw-bold">Welcome to E-Hospital</h2>
+						<p class="lead">Quality Healthcare for Everyone</p>
+						<button class="btn btn-primary btn-lg px-4 mt-3">Make an Appointment</button>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="img/doctor_1.jpg" class="d-block w-100" alt="..." height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h2 class="display-4 fw-bold">Expert Doctors</h2>
+						<p class="lead">Dedicated to Your Well-being</p>
+						<button class="btn btn-primary btn-lg px-4 mt-3">Meet Our Team</button>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="img/hospital4.jpg" class="d-block w-100" alt="..." height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h2 class="display-4 fw-bold">State-of-the-Art Facilities</h2>
+						<p class="lead">Equipped with Modern Technology</p>
+						<button class="btn btn-primary btn-lg px-4 mt-3">Explore Services</button>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="img/doctor_3.jpg" class="d-block w-100" alt="..." height="600px">
+					<div class="carousel-caption d-none d-md-block">
+						<h2 class="display-4 fw-bold">Patient-Centered Care</h2>
+						<p class="lead">Your Health is Our Priority</p>
+						<button class="btn btn-primary btn-lg px-4 mt-3">Learn More</button>
+					</div>
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
+					class="visually-hidden">Next</span>
+			</button>
 		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="img/doctor_2.jpg" class="d-block w-100" alt="..."
-					height="500px">
-			</div>
-			<div class="carousel-item">
-				<img src="img/doctor_1.jpg" class="d-block w-100" alt="..."
-					height="500px">
-			</div>
-			<div class="carousel-item">
-				<img src="img/hospital4.jpg" class="d-block w-100" alt="..."
-					height="500px">
-			</div>
-			<div class="carousel-item">
-				<img src="img/doctor_3.jpg" class="d-block w-100" alt="..."
-					height="500px">
-			</div>
-			<!-- <div class="carousel-item">
-				<img src="img/hospital1.jpg" class="d-block w-100" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="img/hospital2.jpg" class="d-block w-100" alt="...">
-			</div>
-			<div class="carousel-item">
-				<img src="img/hospital3.jpg" class="d-block w-100" alt="...">
-			</div> -->
-
-		</div>
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
 	</div>
+	<!-- End of Hero Section -->
 
-	<!-- end of carousel code -->
-
-
-
-	<!-- First Div Container -->
-	<div class="container p-3">
-		<p class="text-center mt-2 mb-5 fs-2 myP-color">Some key Features of our
-			Doctor Patient Portal</p>
-		<div class="row">
-			<!-- 1st col -->
-			<div class="col-md-8 p-5">
-
-				<div class="row">
+	<!-- Features Section -->
+	<div class="container py-5">
+		<h2 class="text-center section-heading">Key Features of our Doctor Patient Portal</h2>
+		
+		<div class="row g-4">
+			<div class="col-lg-8">
+				<div class="row g-4">
 					<div class="col-md-6">
-						<div class="card my-card">
-							<div class="card-body">
-								<p class="fs-5 myP-color">11000+ Healing Hands</p>
-								<p>Largest network of the world’s finest and brightest
+						<div class="card my-card p-4">
+							<div class="text-center mb-3">
+								<i class="fas fa-user-md feature-icon"></i>
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title fw-bold myP-color">11,000+ Healing Hands</h5>
+								<p class="card-text">Largest network of the world's finest and brightest
 									medical experts who provide compassionate care using
 									outstanding expertise.</p>
 							</div>
@@ -120,20 +204,26 @@
 					</div>
 
 					<div class="col-md-6">
-						<div class="card my-card">
-							<div class="card-body">
-								<p class="fs-5 myP-color">Most Advance Healthcare Technology</p>
-								<p>E-Hospitals has been the pioneer in bringing
+						<div class="card my-card p-4">
+							<div class="text-center mb-3">
+								<i class="fas fa-microscope feature-icon"></i>
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title fw-bold myP-color">Advanced Healthcare Technology</h5>
+								<p class="card-text">E-Hospitals has been the pioneer in bringing
 									ground-breaking health care technologies to Bangladesh.</p>
 							</div>
 						</div>
 					</div>
 
 					<div class="col-md-6 mt-2">
-						<div class="card my-card">
-							<div class="card-body">
-								<p class="fs-5 myP-color">Best Clinical Outcomes</p>
-								<p>Leveraging its vast medical expertise & technological
+						<div class="card my-card p-4">
+							<div class="text-center mb-3">
+								<i class="fas fa-chart-line feature-icon"></i>
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title fw-bold myP-color">Best Clinical Outcomes</h5>
+								<p class="card-text">Leveraging its vast medical expertise & technological
 									advantage, E-Hospitals has consistently delivered best in class
 									clinical outcomes.</p>
 							</div>
@@ -141,91 +231,122 @@
 					</div>
 
 					<div class="col-md-6 mt-2">
-						<div class="card my-card">
-							<div class="card-body">
-								<p class="fs-5 myP-color">500+ Pharmacies</p>
-								<p>E-Hospital Pharmacy is our first, largest and most
-									trusted branded pharmacy network, with over 50s0 plus outlets
-									covering the entire nation</p>
+						<div class="card my-card p-4">
+							<div class="text-center mb-3">
+								<i class="fas fa-pills feature-icon"></i>
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title fw-bold myP-color">500+ Pharmacies</h5>
+								<p class="card-text">E-Hospital Pharmacy is our first, largest and most
+									trusted branded pharmacy network, with over 500 plus outlets
+									covering the entire nation.</p>
 							</div>
 						</div>
 					</div>
 				</div>
-
-
 			</div>
-			<!-- End of 1st col -->
-
-			<!-- 2nd col -->
 			
-				<div class="col-md-4 mt-2 mys-card">
-					<img class="mt-3" alt="" src="img/doctor_1.jpg" height="440px"
-						width="470px">
+			<div class="col-lg-4 d-flex align-items-center">
+				<div class="card shadow-sm border-0 overflow-hidden h-100">
+					<img src="img/doctor_1.jpg" alt="Doctor" class="img-fluid h-100 object-cover">
 				</div>
-			
-			<!-- End of 2nd col -->
-
+			</div>
 		</div>
 	</div>
-	<!-- End of First Div Container -->
+	<!-- End of Features Section -->
 
-	<hr>
+	<!-- Team Section -->
+	<div class="bg-light py-5">
+		<div class="container">
+			<h2 class="text-center section-heading">Our Medical Team</h2>
+			
+			<div class="row g-4">
+				<div class="col-md-3">
+					<div class="card my-card border-0 team-card">
+						<img src="img/doc1.jpg" class="card-img-top" alt="Dr. John">
+						<div class="card-body text-center py-4">
+							<h5 class="card-title fw-bold myP-color mb-1">Dr. John</h5>
+							<p class="text-muted">CEO & Chairman</p>
+							<div class="mt-3">
+								<a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fas fa-envelope"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="card my-card border-0 team-card">
+						<img src="img/doc2.jpg" class="card-img-top" alt="Dr. Brad">
+						<div class="card-body text-center py-4">
+							<h5 class="card-title fw-bold myP-color mb-1">Dr. Brad</h5>
+							<p class="text-muted">Chief Doctor</p>
+							<div class="mt-3">
+								<a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fas fa-envelope"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="card my-card border-0 team-card">
+						<img src="img/doc3.jpg" class="card-img-top" alt="Dr. Jennifer">
+						<div class="card-body text-center py-4">
+							<h5 class="card-title fw-bold myP-color mb-1">Dr. Jennifer</h5>
+							<p class="text-muted">Chief Doctor</p>
+							<div class="mt-3">
+								<a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fas fa-envelope"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-3">
+					<div class="card my-card border-0 team-card">
+						<img src="img/doc4.jpg" class="card-img-top" alt="Dr. Maria">
+						<div class="card-body text-center py-4">
+							<h5 class="card-title fw-bold myP-color mb-1">Dr. Maria</h5>
+							<p class="text-muted">Dean</p>
+							<div class="mt-3">
+								<a href="#" class="text-primary mx-2"><i class="fab fa-twitter"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fab fa-linkedin"></i></a>
+								<a href="#" class="text-primary mx-2"><i class="fas fa-envelope"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End of Team Section -->
 
-	<!-- Second Div Container -->
-
-	<div class="container p-2">
-		<p class="text-center fs-2 myP-color">Our Team</p>
+	<!-- Call to Action Section -->
+	<div class="container py-5">
 		<div class="row">
-			<div class="col-md-3">
-				<div class="card my-card">
-					<div class="card-body text-center">
-						<img alt="" src="img/doc1.jpg" height="300px" width="230px">
-						<p class="fw-bold fs-5">Dr. John</p>
-						<p class="fs-7">(CEO & Chairman)</p>
+			<div class="col-lg-8 mx-auto">
+				<div class="card my-card border-0 bg-primary text-white p-5 text-center">
+					<h2 class="fw-bold mb-4">Ready to experience better healthcare?</h2>
+					<p class="lead mb-4">Book an appointment with one of our specialists today</p>
+					<div>
+						<button class="btn btn-light btn-lg px-4 me-3">Make Appointment</button>
+						<button class="btn btn-outline-light btn-lg px-4">Contact Us</button>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-3">
-				<div class="card my-card">
-					<div class="card-body text-center">
-						<img alt="" src="img/doc2.jpg" height="300px" width="230px">
-						<p class="fw-bold fs-5">Dr. Brad</p>
-						<p class="fs-7">(Chief Doctor)</p>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div class="card my-card">
-					<div class="card-body text-center">
-						<img alt="" src="img/doc3.jpg" height="300px" width="230px">
-						<p class="fw-bold fs-5">Dr. Jennifer</p>
-						<p class="fs-7">(Chief Doctor)</p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-md-3">
-				<div class="card my-card">
-					<div class="card-body text-center">
-						<img alt="" src="img/doc4.jpg" height="300px" width="230px">
-						<p class="fw-bold fs-5">Dr. Maria</p>
-						<p class="fs-7">(Dean)</p>
-					</div>
-				</div>
-			</div>
-
 		</div>
-
 	</div>
-
-	<!-- Second Div Container -->
-
-
-
-
+	<!-- End of Call to Action Section -->
 
 	<!-- footer -->
 	<%@include file="component/footer.jsp"%>
 	<!-- end footer -->
+	
+	<!-- Bootstrap JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
