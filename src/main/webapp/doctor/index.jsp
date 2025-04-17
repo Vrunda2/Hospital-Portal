@@ -1,9 +1,7 @@
 <%@page import="com.hms.entity.Doctor"%>
 <%@page import="com.hms.db.DBConnection"%>
 <%@page import="com.hms.dao.DoctorDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- for jstl tag -->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -14,86 +12,160 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Index Page | Doctor</title>
-<%@include file="../component/allcss.jsp"%>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard | HMS</title>
+    <%@include file="../component/allcss.jsp"%>
 
+    <!-- Custom CSS for this page -->
+    <style type="text/css">
+        :root {
+            --primary-color: #2D8B61;
+            --secondary-color: #1e6044;
+            --accent-color: #f8f9fa;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --card-radius: 0.8rem;
+        }
 
-<!-- customs css for this page -->
-<style type="text/css">
-.my-card {
-	box-shadow: 0px 0px 10px 1px maroon;
-	/*box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);*/
-}
-</style>
-<!-- end of customs css for this page -->
+        body {
+            background-color: #f5f5f7;
+            font-family: 'Poppins', sans-serif;
+        }
 
+        .dashboard-container {
+            padding: 3rem 1.5rem;
+        }
 
+        .dashboard-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
 
+        .dashboard-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 3px;
+            width: 80px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: var(--card-radius);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+            border: none;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .stat-card-body {
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+
+        .stat-icon {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+
+        .stat-title {
+            color: #555;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .stat-value {
+            color: var(--primary-color);
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                padding: 2rem 1rem;
+            }
+            
+            .stat-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+    <!-- End of custom CSS for this page -->
 </head>
+
 <body>
-	<%@include file="navbar.jsp"%>
+    <%@include file="navbar.jsp"%>
 
+    <!-- Check if doctor is logged in -->
+    <c:if test="${empty doctorObj}">
+        <c:redirect url="../doctor_login.jsp"></c:redirect>
+    </c:if>
 
-	<!-- check is doctor is login or not if login then only he can access doctors dashboard -->
-	<!-- otherwise redirect him to doctor login page for log in -->
-	<!-- if "doctorObj" is empty means no one is login. -->
+    <div class="container dashboard-container">
+        <h2 class="text-center dashboard-title">Doctor Dashboard</h2>
 
-	<c:if test="${empty doctorObj }">
+        <%
+        DoctorDAO docDAO = new DoctorDAO(DBConnection.getConn());
+        int totalNumberOfDoctor = docDAO.countTotalDoctor();
+        
+        // Get current login doctor object from session
+        Doctor currentLoginDoctor = (Doctor)session.getAttribute("doctorObj");
+        %>
 
-		<c:redirect url="../doctor_login.jsp"></c:redirect>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h5 class="mb-0">Total Doctors</h5>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-user-doctor"></i>
+                        </div>
+                        <p class="stat-title">Active Medical Professionals</p>
+                        <p class="stat-value"><%= totalNumberOfDoctor %></p>
+                    </div>
+                </div>
+            </div>
 
-	</c:if>
-
-	<!-- check is doctor is login or not -->
-
-
-	<div class="container p-5">
-		<p class="text-center text-success fs-3">Doctor DashBoard</p>
-
-		<%
-		
-		
-		DoctorDAO docDAO = new DoctorDAO(DBConnection.getConn());
-		int totalNumberOfDoctor = docDAO.countTotalDoctor();
-		
-		//get current login doctor object from session
-		Doctor currentLoginDoctor = (Doctor)session.getAttribute("doctorObj");
-		
-		
-		%>
-
-		<div class="row">
-			<div class="col-md-4 offset-md-2">
-				<div class="card my-card">
-					<div class="card-body text-center text-success">
-						<i class="fa-solid fa-user-doctor fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							Doctor <br><%= totalNumberOfDoctor %>
-						</p>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="col-md-4">
-				<div class="card my-card">
-					<div class="card-body text-center text-success">
-						<i class="fa-solid fa-calendar-check fa-3x"></i><br>
-						<p class="fs-4 text-center">
-							Total Appointment <br> <%= docDAO.countTotalAppointmentByDoctorId(currentLoginDoctor.getId()) %>
-						</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-
-	</div>
-
-
-
-
+            <div class="col-md-6">
+                <div class="stat-card">
+                    <div class="stat-card-header">
+                        <h5 class="mb-0">Your Appointments</h5>
+                    </div>
+                    <div class="stat-card-body">
+                        <div class="stat-icon">
+                            <i class="fa-solid fa-calendar-check"></i>
+                        </div>
+                        <p class="stat-title">Total Scheduled Appointments</p>
+                        <p class="stat-value"><%= docDAO.countTotalAppointmentByDoctorId(currentLoginDoctor.getId()) %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

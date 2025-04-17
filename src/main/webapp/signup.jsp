@@ -36,10 +36,11 @@
         
         .signup-container {
             display: flex;
+            flex: 1;
             justify-content: center;
             align-items: center;
             min-height: 80vh;
-            padding: 2rem 0;
+            padding: 2rem ;
         }
         
         .signup-card {
@@ -220,7 +221,7 @@
                                                class="form-control icon-input" required>
                                     </div>
                                     <div class="form-text text-muted">
-                                        <i class="fas fa-lock me-1"></i>We'll never share your email with anyone else.
+                                        <!-- <i class="fas fa-lock me-1"></i>We'll never share your email with anyone else. -->
                                     </div>
                                 </div>
                                 

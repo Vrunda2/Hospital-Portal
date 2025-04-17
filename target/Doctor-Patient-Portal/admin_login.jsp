@@ -36,12 +36,13 @@
         }
         
         .login-container {
+            flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 80vh;
+            padding: 2rem 1rem;
         }
-        
+
         .login-card {
             border: none;
             border-radius: var(--border-radius);
@@ -50,6 +51,7 @@
             transition: transform 0.3s ease;
             max-width: 420px;
             width: 100%;
+            background-color: white;
         }
         
         .login-card:hover {
@@ -90,7 +92,7 @@
         
         .form-label {
             font-weight: 500;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             color: var(--text-color);
         }
         
@@ -118,7 +120,7 @@
         
         .alert {
             border-radius: 8px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             padding: 1rem;
         }
         
@@ -166,7 +168,7 @@
             display: flex;
             align-items: center;
             text-align: center;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
         
         .divider::before, .divider::after {
@@ -176,7 +178,7 @@
         }
         
         .divider span {
-            padding: 0 10px;
+            padding: 0 5px;
             color: #718096;
             font-size: 0.875rem;
         }
@@ -185,7 +187,7 @@
             text-align: center;
             color: #718096;
             font-size: 0.875rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
     </style>
 </head>
@@ -261,9 +263,9 @@
                                 <span>System Access Only</span>
                             </div>
                             
-                            <div class="footer-text">
+                            <!-- <div class="footer-text">
                                 <p>Need help? Contact the IT department</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

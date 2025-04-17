@@ -468,7 +468,7 @@
                         <!-- End Messages -->
                         
                         <div class="d-flex justify-content-end mb-3">
-                            <a href="add_doctor.jsp" class="btn btn-add">
+                            <a href="doctor.jsp" class="btn btn-add">
                                 <i class="fas fa-plus-circle btn-icon"></i> Add New Doctor
                             </a>
                         </div>

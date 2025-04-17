@@ -48,6 +48,24 @@ body {
   border: none;
   overflow: hidden;
 }
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem; /* added padding around the card */
+  background-color: var(--light-bg);
+}
+
+.my-card {
+  border-radius: var(--rounded);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  overflow: hidden;
+  background-color: var(--white); /* ensure background is visible if padding shows */
+}
+
 
 .my-bg-color {
   background-color: var(--primary-color);

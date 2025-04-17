@@ -28,7 +28,9 @@
         .login-container {
             min-height: 80vh;
             display: flex;
+            flex: 1;
             align-items: center;
+            padding: 2rem 0;
         }
         
         .card {

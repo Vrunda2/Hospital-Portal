@@ -140,7 +140,12 @@ body {
 					<div class="carousel-caption d-none d-md-block">
 						<h2 class="display-4 fw-bold">Welcome to E-Hospital</h2>
 						<p class="lead">Quality Healthcare for Everyone</p>
-						<button class="btn btn-primary btn-lg px-4 mt-3">Make an Appointment</button>
+						<a href="user_appointment.jsp" class="btn btn-primary btn-lg px-4 mt-3">
+							Make an Appointment
+						  </a>
+						  
+						  
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -333,7 +338,9 @@ body {
 					<h2 class="fw-bold mb-4">Ready to experience better healthcare?</h2>
 					<p class="lead mb-4">Book an appointment with one of our specialists today</p>
 					<div>
-						<button class="btn btn-light btn-lg px-4 me-3">Make Appointment</button>
+						<a href="user_appointment.jsp" class="btn btn-outline-light btn-lg px-4">
+							Make an Appointment
+						  </a>
 						<button class="btn btn-outline-light btn-lg px-4">Contact Us</button>
 					</div>
 				</div>
