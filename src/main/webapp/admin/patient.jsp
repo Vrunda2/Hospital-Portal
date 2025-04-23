@@ -646,7 +646,7 @@
                             <th scope="col"><i class="fas fa-phone me-2"></i>Contact</th>
                             <th scope="col"><i class="fas fa-map-marker-alt me-2"></i>Location</th>
                             <th scope="col"><i class="fas fa-clipboard-check me-2"></i>Status</th>
-                            <th scope="col"><i class="fas fa-cog me-2"></i>Actions</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -711,7 +711,7 @@
                                     <%= appList.getStatus() %>
                                 </span>
                             </td>
-                            <td class="actions-cell">
+                            <!-- <td class="actions-cell">
                                 <button class="action-btn view" title="View Details">
                                     <i class="fas fa-eye"></i>
                                 </button>
@@ -721,7 +721,7 @@
                                 <button class="action-btn delete" title="Delete">
                                     <i class="fas fa-trash"></i>
                                 </button>
-                            </td>
+                            </td> -->
                         </tr>
                         <% } %>
                     </tbody>
@@ -732,7 +732,7 @@
                 <div>
                     <span class="text-muted">Showing <%= list.size() %> out of <%= list.size() %> patients</span>
                 </div>
-                <nav aria-label="Page navigation">
+                <!-- <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Previous">
@@ -748,7 +748,7 @@
                             </a>
                         </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
         </div>
     </div>

@@ -43,6 +43,9 @@ body {
     transition: all 0.3s ease;
     overflow: hidden;
     margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .my-card:hover {
@@ -174,11 +177,24 @@ select.form-control {
     background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
 }
 
-/* New responsive layout for reordering */
+/* Container for profile sections */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+
+.edit-profile-section, .change-password-section {
+    width: 100%;
+    max-width: 600px;
+}
+
 @media (min-width: 992px) {
     .profile-container {
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     
     .edit-profile-section {
@@ -193,8 +209,11 @@ select.form-control {
 
 @media (max-width: 991px) {
     .container {
-        max-width: 100%;
         padding: 1rem;
+    }
+    
+    .my-card {
+        max-width: 90%;
     }
 }
 </style>

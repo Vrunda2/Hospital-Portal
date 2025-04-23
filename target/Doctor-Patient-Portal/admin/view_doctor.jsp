@@ -508,11 +508,7 @@
                                                 <%=doctorLst.getPhone()%>
                                             </a>
                                         </td>
-                                        <td class="text-center">
-                                            <a class="btn btn-primary btn-sm" href="edit_doctor.jsp?id=<%=doctorLst.getId()%>">
-                                                <i class="fas fa-edit btn-icon"></i> Edit
-                                            </a>
-                                        </td>
+                                        
                                         <td class="text-center">
                                             <a class="btn btn-danger btn-sm" href="../deleteDoctor?id=<%=doctorLst.getId()%>"
                                                onclick="return confirm('Are you sure you want to delete Dr. <%=doctorLst.getFullName()%>?')">

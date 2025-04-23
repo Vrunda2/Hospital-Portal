@@ -8,7 +8,7 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.jsp">
       <i class="fa-solid fa-hospital-user me-2 text-primary"></i>
-      <span class="fw-bold">HealthConnect</span>
+      <span class="fw-bold">MediCore</span>
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

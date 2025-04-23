@@ -9,7 +9,7 @@
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="index.jsp">
       <i class="fa-solid fa-hospital me-2"></i>
-      <span>HealthConnect</span>
+      <span>MediCore</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
       data-bs-target="#navbarSupportedContent"
@@ -68,11 +68,7 @@
                 <span>${userObj.fullName}</span>
               </button>
               <ul class="dropdown-menu dropdown-menu-end shadow border-0" aria-labelledby="userDropdown">
-                <li>
-                  <a class="dropdown-item" href="user_profile.jsp">
-                    <i class="fa-solid fa-user me-2"></i> My Profile
-                  </a>
-                </li>
+                
                 <li>
                   <a class="dropdown-item" href="change_password.jsp">
                     <i class="fa-solid fa-key me-2"></i> Change Password

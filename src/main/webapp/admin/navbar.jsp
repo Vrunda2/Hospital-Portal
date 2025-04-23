@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="index.jsp">
             <i class="fas fa-hospital me-2"></i> 
-            <span class="fw-bold">Doctor Patient Portal</span>
+            <span class="fw-bold">MediCore</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"

@@ -13,50 +13,18 @@
 
 <footer class="my-bg-color text-center text-white mt-5">
   <!-- Grid container -->
-  <div class="container p-4 pb-0">
+ 
     <!-- Section: Social media -->
-    <section class="mb-4">
-      <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
-
-      <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
-
-      <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
-
-      <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
-
-      <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
-
-      <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
-  </div>
+  
   <!-- Grid container -->
 
   <!-- Copyright -->
   
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2025 Copyright:
-    <a class="text-white" href="https://github.com/ayesha1209">Ayesha Patel</a> (Developer)
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2); color: aliceblue;">
+    Delivering care with precision and compassion.
+    <!-- <a class="text-white" href="https://github.com/ayesha1209">Ayesha Patel</a> (Developer)
     <a class="text-white" href="https://github.com/Vrunda2">Vrunda Radadiya</a> (Developer)
-    <a class="text-white" href="https://github.com/meghanavasava">Meghana Vasava</a> (Developer)
+    <a class="text-white" href="https://github.com/meghanavasava">Meghana Vasava</a> (Developer) -->
   </div>
   <!-- Copyright -->
 </footer>

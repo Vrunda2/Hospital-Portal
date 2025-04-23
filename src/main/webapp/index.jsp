@@ -153,7 +153,7 @@ body {
 					<div class="carousel-caption d-none d-md-block">
 						<h2 class="display-4 fw-bold">Expert Doctors</h2>
 						<p class="lead">Dedicated to Your Well-being</p>
-						<button class="btn btn-primary btn-lg px-4 mt-3">Meet Our Team</button>
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -161,7 +161,7 @@ body {
 					<div class="carousel-caption d-none d-md-block">
 						<h2 class="display-4 fw-bold">State-of-the-Art Facilities</h2>
 						<p class="lead">Equipped with Modern Technology</p>
-						<button class="btn btn-primary btn-lg px-4 mt-3">Explore Services</button>
+						
 					</div>
 				</div>
 				<div class="carousel-item">
@@ -169,7 +169,7 @@ body {
 					<div class="carousel-caption d-none d-md-block">
 						<h2 class="display-4 fw-bold">Patient-Centered Care</h2>
 						<p class="lead">Your Health is Our Priority</p>
-						<button class="btn btn-primary btn-lg px-4 mt-3">Learn More</button>
+						
 					</div>
 				</div>
 			</div>
@@ -341,7 +341,7 @@ body {
 						<a href="user_appointment.jsp" class="btn btn-outline-light btn-lg px-4">
 							Make an Appointment
 						  </a>
-						<button class="btn btn-outline-light btn-lg px-4">Contact Us</button>
+						
 					</div>
 				</div>
 			</div>
