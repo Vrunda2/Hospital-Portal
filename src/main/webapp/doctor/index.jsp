@@ -20,15 +20,18 @@
     <!-- Custom CSS for this page -->
     <style type="text/css">
         :root {
-            --primary-color: #2D8B61;
-            --secondary-color: #1e6044;
-            --accent-color: #f8f9fa;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --card-radius: 0.8rem;
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #dbeafe;
+            --light-accent: #eff6ff;
+            --shadow-color: rgba(37, 99, 235, 0.15);
+            --card-radius: 1rem;
+            --text-primary: #1e3a8a;
+            --text-secondary: #64748b;
         }
 
         body {
-            background-color: #f5f5f7;
+            background-color: #f8fafc;
             font-family: 'Poppins', sans-serif;
         }
 
@@ -38,10 +41,12 @@
 
         .dashboard-title {
             color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 2rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
             position: relative;
-            padding-bottom: 10px;
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .dashboard-title::after {
@@ -50,56 +55,93 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            height: 3px;
-            width: 80px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
+            height: 4px;
+            width: 100px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
         }
 
         .stat-card {
             background-color: white;
             border-radius: var(--card-radius);
-            box-shadow: 0 8px 20px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            transition: all 0.3s ease;
             height: 100%;
             overflow: hidden;
             border: none;
+            position: relative;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(37, 99, 235, 0.2);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .stat-card-header {
-            background-color: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
-            padding: 1rem;
+            padding: 1.25rem;
             text-align: center;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
 
         .stat-card-body {
-            padding: 1.5rem 1rem;
+            padding: 2rem 1.5rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card-body::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background-color: var(--accent-color);
+            border-top-left-radius: 100%;
+            opacity: 0.3;
+            z-index: -1;
         }
 
         .stat-icon {
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            background-color: var(--light-accent);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow-color);
         }
 
         .stat-title {
-            color: #555;
+            color: var(--text-secondary);
             font-weight: 500;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
         }
 
         .stat-value {
-            color: var(--primary-color);
-            font-size: 2rem;
+            color: var(--text-primary);
+            font-size: 2.5rem;
             font-weight: 700;
+            margin-bottom: 0;
+            text-shadow: 1px 1px 0 rgba(255, 255, 255, 1);
         }
 
         /* Responsive adjustments */
@@ -110,6 +152,17 @@
             
             .stat-card {
                 margin-bottom: 1.5rem;
+            }
+            
+            .stat-icon {
+                width: 60px;
+                height: 60px;
+                line-height: 60px;
+                font-size: 2rem;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
             }
         }
     </style>

@@ -35,10 +35,10 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link d-flex align-items-center" href="appointments.jsp">
+          <!-- <a class="nav-link d-flex align-items-center" href="appointments.jsp">
             <i class="fa-solid fa-calendar-check me-1"></i>
             <span>Appointments</span>
-          </a>
+          </a> -->
         </li>
       </ul>
 
@@ -53,12 +53,12 @@
             <span>${doctorObj.fullName}</span>
           </button>
           <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2" aria-labelledby="dropdownMenuButton1">
-            <li>
+            <!-- <li>
               <a class="dropdown-item d-flex align-items-center" href="doctor_profile.jsp">
                 <i class="fa-solid fa-user me-2 text-primary"></i>
                 <span>My Profile</span>
               </a>
-            </li>
+            </li> -->
             <li>
               <a class="dropdown-item d-flex align-items-center" href="edit_profile.jsp">
                 <i class="fa-solid fa-gear me-2 text-primary"></i>

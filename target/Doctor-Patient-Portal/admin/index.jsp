@@ -9,192 +9,354 @@
 
 <%@page isELIgnored="false"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Dashboard</title>
+<title>Admin page</title>
 <%@include file="../component/allcss.jsp"%>
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-<!-- Custom CSS for this page -->
+<!-- customs css for this page -->
 <style type="text/css">
 :root {
-  --primary-blue: #1e88e5;
-  --primary-dark: #1565c0;
-  --primary-light: #bbdefb;
-  --accent-blue: #2979ff;
-  --text-dark: #333;
-  --text-light: #fff;
-  --bg-light: #f5f7fa;
-  --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --primary-blue: #1a73e8;
+  --primary-dark: #0d47a1;
+  --primary-light: #e8f0fe;
+  --accent: #00c3ff;
+  --text-primary: #202124;
+  --text-secondary: #5f6368;
+  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 body {
-  background-color: var(--bg-light);
-  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+  background-color: #f6f9fc;
+  color: var(--text-primary);
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+  position: relative;
+  text-align: center;
 }
 
 .dashboard-title {
-  color: var(--primary-dark);
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: -0.5px;
   position: relative;
-  padding-bottom: 10px;
+  display: inline-block;
 }
 
-.dashboard-title:after {
-  content: '';
+.dashboard-title::after {
+  content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background-color: var(--primary-blue);
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent));
   border-radius: 2px;
 }
 
 .my-card {
-  background-color: white;
-  border-radius: 12px;
   border: none;
-  box-shadow: var(--box-shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  border-radius: var(--radius);
+  background: white;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
   overflow: hidden;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.my-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent));
+  z-index: 2;
 }
 
 .my-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
 }
 
-.card-header-blue {
-  background-color: var(--primary-blue);
-  color: var(--text-light);
-  padding: 15px;
-  border-radius: 12px 12px 0 0;
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 3;
 }
 
-.card-body-custom {
-  padding: 20px;
-  text-align: center;
-}
-
-.stat-icon {
+.dashboard-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-light);
   color: var(--primary-blue);
-  margin-bottom: 15px;
-  font-size: 2.5rem;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.stat-title {
-  color: var(--text-dark);
-  font-size: 1.1rem;
-  margin-bottom: 5px;
-  font-weight: 500;
+.dashboard-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0) 30%, rgba(26, 115, 232, 0.1) 100%);
+}
+
+.dashboard-icon i {
+  font-size: 1.8rem;
+  z-index: 2;
+}
+
+.stat-label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .stat-value {
-  color: var(--primary-dark);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin: 0.2rem 0 0;
 }
 
-.alert-custom-success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 20px;
+.clickable-card {
+  cursor: pointer;
+  position: relative;
 }
 
-.alert-custom-danger {
-  background-color: #ffebee;
-  color: #c62828;
-  border-radius: 8px;
-  padding: 12px;
-  margin-bottom: 20px;
+.clickable-card::after {
+  content: "+";
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 25px;
+  height: 25px;
+  background: var(--primary-light);
+  color: var(--primary-blue);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  opacity: 0;
+  transition: var(--transition);
 }
 
-/* Modal customization */
-.modal-header {
-  background-color: var(--primary-blue);
-  color: var(--text-light);
-  border-radius: 10px 10px 0 0;
+.clickable-card:hover::after {
+  opacity: 1;
 }
 
+/* Alert styles */
+.alert {
+  border-radius: var(--radius);
+  border: none;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+.alert::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.alert-success {
+  background-color: #e3f6e8;
+  color: #0a6b2e;
+}
+
+.alert-success::before {
+  content: "\f058";
+  color: #0a6b2e;
+}
+
+.alert-danger {
+  background-color: #fdeded;
+  color: #b71c1c;
+}
+
+.alert-danger::before {
+  content: "\f057";
+  color: #b71c1c;
+}
+
+/* Modal styling */
 .modal-content {
-  border-radius: 10px;
   border: none;
-  box-shadow: var(--box-shadow);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
 }
 
-.btn-primary-custom {
-  background-color: var(--primary-blue);
-  color: var(--text-light);
-  border: none;
-  padding: 8px 20px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+.modal-header {
+  background: linear-gradient(90deg, var(--primary-blue), var(--accent));
+  color: white;
+  border-bottom: none;
+  padding: 1.5rem;
 }
 
-.btn-primary-custom:hover {
-  background-color: var(--primary-dark);
+.modal-title {
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.btn-secondary-custom {
-  background-color: #e0e0e0;
-  color: var(--text-dark);
-  border: none;
-  padding: 8px 20px;
-  border-radius: 6px;
-  transition: background-color 0.3s;
+.modal-body {
+  padding: 2rem;
 }
 
-.btn-secondary-custom:hover {
-  background-color: #bdbdbd;
+.form-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
 }
 
-.form-control-custom {
-  border-radius: 6px;
-  border: 1px solid #ddd;
-  padding: 10px 15px;
-  transition: border-color 0.3s;
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #e1e1e1;
+  padding: 0.75rem 1rem;
+  transition: var(--transition);
 }
 
-.form-control-custom:focus {
+.form-control:focus {
   border-color: var(--primary-blue);
-  box-shadow: 0 0 0 0.2rem rgba(30, 136, 229, 0.25);
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.15);
+}
+
+.modal-footer {
+  border-top: none;
+  padding: 1rem 2rem 1.5rem;
+}
+
+.btn-outline-primary-blue {
+  color: var(--primary-blue);
+  border: 2px solid var(--primary-blue);
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-outline-primary-blue:hover {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #e1e1e1;
+  border: none;
+  color: var(--text-secondary);
+  border-radius: 8px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.btn-secondary:hover {
+  background-color: #d1d1d1;
+  color: var(--text-primary);
+}
+
+.btn-close {
+  color: white;
+  opacity: 0.8;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+/* Stats row */
+.stats-row {
+  margin-top: 1rem;
+}
+
+@media (max-width: 992px) {
+  .stats-row > div {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-title {
+    font-size: 1.8rem;
+  }
+  .stat-value {
+    font-size: 2rem;
+  }
 }
 </style>
-</head>
+<!-- end of customs css for this page -->
 
+</head>
 <body>
 	<%@include file="navbar.jsp"%>
 
-	<!-- adminObj session maintain -->
+	<!-- adminObj session maintain if "adminObj" empty than go and login first...-->
+	<!-- no one can access admin dashboard without login as admin-->
 	<c:if test="${empty adminObj }">
 		<c:redirect url="../admin_login.jsp"></c:redirect>
 	</c:if>
 
-	<div class="container py-5">
-		<h2 class="dashboard-title text-center mb-4">Admin Dashboard</h2>
+	<div class="dashboard-container">
+		<div class="dashboard-header">
+			<h2 class="dashboard-title">Admin Dashboard</h2>
+		</div>
 
 		<!-- message print -->
+		<!-- for success msg -->
 		<c:if test="${not empty successMsg }">
-			<div class="alert-custom-success text-center">
-				<i class="fas fa-check-circle me-2"></i> ${successMsg}
+			<div class="alert alert-success alert-dismissible fade show" role="alert">
+				${successMsg}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 			<c:remove var="successMsg" scope="session" />
 		</c:if>
 
+		<!-- for error msg -->
 		<c:if test="${not empty errorMsg }">
-			<div class="alert-custom-danger text-center">
-				<i class="fas fa-exclamation-circle me-2"></i> ${errorMsg}
+			<div class="alert alert-danger alert-dismissible fade show" role="alert">
+				${errorMsg}
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 			</div>
 			<c:remove var="errorMsg" scope="session" />
 		</c:if>
@@ -209,116 +371,87 @@ body {
 		int totalNumberOfSpecialist = docDAO.countTotalSpecialist();
 		%>
 
-		<!-- Stats Cards -->
-		<div class="row g-4">
-			<div class="col-md-6 col-lg-3">
-				<div class="my-card h-100">
-					<div class="card-header-blue">
-						<h5 class="m-0 text-center"><i class="fas fa-stethoscope me-2"></i> Doctors</h5>
-					</div>
-					<div class="card-body-custom">
-						<div class="stat-icon">
+		<!-- row-1 -->
+		<div class="row stats-row g-4">
+			<div class="col-md-3 col-sm-6">
+				<div class="my-card">
+					<div class="card-body">
+						<div class="dashboard-icon">
 							<i class="fa-solid fa-user-doctor"></i>
 						</div>
-						<div class="stat-value"><%= totalNumberOfDoctor %></div>
-						<div class="stat-title">Registered Doctors</div>
+						<p class="stat-label">Doctors</p>
+						<h3 class="stat-value"><%= totalNumberOfDoctor %></h3>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-6 col-lg-3">
-				<div class="my-card h-100">
-					<div class="card-header-blue">
-						<h5 class="m-0 text-center"><i class="fas fa-users me-2"></i> Users</h5>
-					</div>
-					<div class="card-body-custom">
-						<div class="stat-icon">
+			<div class="col-md-3 col-sm-6">
+				<div class="my-card">
+					<div class="card-body">
+						<div class="dashboard-icon">
 							<i class="fas fa-user-circle"></i>
 						</div>
-						<div class="stat-value"><%= totalNumberOfUser %></div>
-						<div class="stat-title">Registered Users</div>
+						<p class="stat-label">Users</p>
+						<h3 class="stat-value"><%= totalNumberOfUser %></h3>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-6 col-lg-3">
-				<div class="my-card h-100">
-					<div class="card-header-blue">
-						<h5 class="m-0 text-center"><i class="fas fa-calendar me-2"></i> Appointments</h5>
-					</div>
-					<div class="card-body-custom">
-						<div class="stat-icon">
+			<div class="col-md-3 col-sm-6">
+				<div class="my-card">
+					<div class="card-body">
+						<div class="dashboard-icon">
 							<i class="fa-solid fa-calendar-check"></i>
 						</div>
-						<div class="stat-value"><%= totalNumberOfAppointment %></div>
-						<div class="stat-title">Total Appointments</div>
+						<p class="stat-label">Appointments</p>
+						<h3 class="stat-value"><%= totalNumberOfAppointment %></h3>
 					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-6 col-lg-3">
-				<div class="my-card h-100" data-bs-toggle="modal" data-bs-target="#specialistModal">
-					<div class="card-header-blue">
-						<h5 class="m-0 text-center"><i class="fas fa-user-md me-2"></i> Specialties</h5>
-					</div>
-					<div class="card-body-custom">
-						<div class="stat-icon">
+			<div class="col-md-3 col-sm-6">
+				<div class="my-card clickable-card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+					<div class="card-body">
+						<div class="dashboard-icon">
 							<i class="fa-solid fa-stethoscope"></i>
 						</div>
-						<div class="stat-value"><%= totalNumberOfSpecialist %></div>
-						<div class="stat-title">Specialties Available</div>
-						<div class="mt-3">
-							<span class="badge bg-primary">Click to Add New</span>
-						</div>
+						<p class="stat-label">Specialists</p>
+						<h3 class="stat-value"><%= totalNumberOfSpecialist %></h3>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Specialist Modal -->
-	<div class="modal fade" id="specialistModal" tabindex="-1"
-		aria-labelledby="specialistModalLabel" aria-hidden="true">
+	<!-- specialis modal -->
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="specialistModalLabel">
-						<i class="fas fa-plus-circle me-2"></i> Add New Specialty
-					</h5>
+					<h5 class="modal-title" id="exampleModalLabel">Add Specialist</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body p-4">
+				<div class="modal-body">
 					<form action="../addSpecialist" method="post">
 						<div class="form-group mb-3">
-							<label class="form-label fw-semibold">Specialty Name</label>
-							<div class="input-group">
-								<span class="input-group-text">
-									<i class="fas fa-user-md"></i>
-								</span>
-								<input type="text" name="specialistName" 
-									placeholder="Enter specialty name" 
-									class="form-control form-control-custom" 
-									required />
-							</div>
-							<small class="text-muted">For example: Cardiology, Neurology, Pediatrics, etc.</small>
+							<label class="form-label">Enter Specialist Name</label>
+							<input type="text" name="specialistName" placeholder="Enter Specialist Name" class="form-control" />
 						</div>
 						<div class="text-center mt-4">
-							<button type="button" class="btn btn-secondary-custom me-2" data-bs-dismiss="modal">
-								<i class="fas fa-times me-1"></i> Cancel
-							</button>
-							<button type="submit" class="btn btn-primary-custom">
-								<i class="fas fa-plus-circle me-1"></i> Add Specialty
-							</button>
+							<button type="submit" class="btn btn-outline-primary-blue">Add</button>
 						</div>
 					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End of Specialist Modal -->
-
-	<!-- Bootstrap JS -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- end of specialis modal -->
 </body>
 </html>

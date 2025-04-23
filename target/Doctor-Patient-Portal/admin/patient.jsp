@@ -523,21 +523,16 @@
 <body>
     <%@include file="navbar.jsp"%>
     
-    <div class="container-fluid page-container">
+    
         <!-- Dashboard Header -->
-        <div class="dashboard-header animate-fade-in">
-            <h1 class="dashboard-title">
-                <i class="fas fa-hospital-user me-2"></i> Patient Management
-            </h1>
-            <div class="dashboard-actions">
-                <button class="btn btn-dashboard btn-primary-soft me-2">
-                    <i class="fas fa-file-export me-1"></i> Export
-                </button>
-                <button class="btn btn-primary">
-                    <i class="fas fa-plus me-1"></i> Add Patient
-                </button>
+        <div class="container-fluid page-container">
+            <!-- Dashboard Header -->
+            <div class="dashboard-header animate-fade-in">
+                <h1 class="dashboard-title">
+                    <i class="fas fa-hospital-user me-2"></i> Patient Management
+                </h1>
+                
             </div>
-        </div>
         
         <!-- Stats Cards -->
         <div class="stats-container animate-slide-up">
@@ -615,39 +610,7 @@
             </div>
         </div>
         
-        <!-- Filters -->
-        <div class="filters-container animate-slide-up" style="animation-delay: 0.1s;">
-            <div class="search-box me-3 flex-grow-1">
-                <i class="fas fa-search search-icon"></i>
-                <input type="text" class="form-control" placeholder="Search patients by name, email, or disease...">
-            </div>
-            <div class="filter-group">
-                <label class="filter-label">Status:</label>
-                <select class="form-select">
-                    <option value="">All Statuses</option>
-                    <option value="pending">Pending</option>
-                    <option value="approved">Approved</option>
-                    <option value="completed">Completed</option>
-                    <option value="cancelled">Cancelled</option>
-                </select>
-            </div>
-            <div class="filter-group">
-                <label class="filter-label">Doctor:</label>
-                <select class="form-select">
-                    <option value="">All Doctors</option>
-                    <%
-                    DoctorDAO doctorFilterDAO = new DoctorDAO(DBConnection.getConn());
-                    List<Doctor> doctorList = doctorFilterDAO.getAllDoctor();
-                    for(Doctor d : doctorList) {
-                    %>
-                    <option value="<%= d.getId() %>"><%= d.getFullName() %></option>
-                    <% } %>
-                </select>
-            </div>
-            <button class="btn btn-primary">
-                <i class="fas fa-filter me-1"></i> Apply Filters
-            </button>
-        </div>
+        
         
         <!-- Patient Table Card -->
         <div class="card animate-slide-up" style="animation-delay: 0.2s;">
@@ -794,9 +757,23 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <script>
-        // Animation for elements when they come into view
+        // Fix for navbar toggle functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize any JavaScript functionality here
+            // Find the navbar toggler and attach event listener
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', function() {
+                    const targetId = this.getAttribute('data-bs-target') || this.getAttribute('data-target');
+                    if (targetId) {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            targetElement.classList.toggle('show');
+                        }
+                    }
+                });
+            }
+            
+            // Initialize any other JavaScript functionality here
             
             // Example: Toggle advanced filters
             const filterToggle = document.querySelector('.filter-toggle');

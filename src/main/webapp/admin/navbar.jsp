@@ -1,45 +1,53 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="index.jsp"><i
-			class="fa-sharp fa-solid fa-hospital"></i> Doctor Patient Portal</a>
-		<!-- 		<a class="navbar-brand" href="index.jsp"><i
-			class="fa-solid fa-house-chimney-medical"></i> E-HOSPITAL</a> -->
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-			data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<!-- original ul <ul class="navbar-nav me-auto mb-2 mb-lg-0"> -->
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.jsp"><i class="fa fa-home"></i>
-						HOME</a></li>
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="doctor.jsp"><i
-						class="fa-solid fa-user-doctor"></i> DOCTOR</a></li>
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="view_doctor.jsp"><i
-						class="fa-solid fa-list"></i> VIEW DOCTOR</a></li>
-				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="patient.jsp"><i
-						class="fa fa-wheelchair"></i> PATIENT</a></li>
-			</ul>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="index.jsp">
+            <i class="fas fa-hospital me-2"></i> 
+            <span class="fw-bold">Doctor Patient Portal</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active px-3" aria-current="page" href="index.jsp">
+                        <i class="fas fa-home me-1"></i> Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active px-3" aria-current="page" href="doctor.jsp">
+                        <i class="fas fa-user-md me-1"></i> Doctor
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active px-3" aria-current="page" href="view_doctor.jsp">
+                        <i class="fas fa-list me-1"></i> View Doctors
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active px-3" aria-current="page" href="patient.jsp">
+                        <i class="fas fa-wheelchair me-1"></i> Patient
+                    </a>
+                </li>
+            </ul>
 
-			<div class="dropdown">
-				<button class="btn btn-light  dropdown-toggle" type="button"
-					id="dropdownMenuButton1" data-bs-toggle="dropdown"
-					aria-expanded="false">
-					<i class="fa fa-universal-access"></i> Admin
-				</button>
-				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-					<li><a class="dropdown-item" href="../adminLogout">Logout</a></li>
-
-				</ul>
-			</div>
-
-
-		</div>
-	</div>
+            <div class="dropdown">
+                <button class="btn btn-light dropdown-toggle" type="button"
+                    id="adminDropdown" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <i class="fas fa-user-shield me-1"></i> Admin
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
+                    <li>
+                        <a class="dropdown-item d-flex align-items-center" href="../adminLogout">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </nav>
